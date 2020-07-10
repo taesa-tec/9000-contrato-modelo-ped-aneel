@@ -1,0 +1,8 @@
+# Latex Textmaker ignore files
+*.pdf
+*.gz
+*.txt
+*.aux
+*.log
+*.fls
+*.fdb_latexmk

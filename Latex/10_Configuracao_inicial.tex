@@ -1,0 +1,205 @@
+%%%------------------------------------------------------------------------------%%
+%%%	PAGE LAYOUT SPECIFICATIONS
+%%%------------------------------------------------------------------------------%%
+%\documentclass[a4paper,12pt,twoside]{report} % Página default, 2Lados, font size is 12pt on A4 paper
+\documentclass[a4paper,12pt,notitlepage]{report} % Página default, single-side, font size is 12pt on A4 paper
+\usepackage{geometry} % Required to modify the page layout
+\geometry{
+         headheight=3cm,
+         top=4.0cm,
+         bottom=5.0cm,
+         left=2.0cm,
+         right=2.0cm}
+
+%%%%%% ==============================  PACOTES  ============================== %%%%%%
+%%% --- Listas e enumeradores ---%
+\usepackage{enumitem}
+\usepackage[sharp]{easylist}
+
+%%%%  --- Layout de página ---%
+\usepackage{fancyhdr}  % customized pages style
+
+%%%  --- Gerador de Loren Ipsum ---%
+\usepackage{lipsum}% juts to generate text for the example
+
+%%%  --- paginação referencial "Pagina X de Y"  ---%
+\usepackage{lastpage} 
+
+%%%  --- Permite caracteres acentuados ---%
+\usepackage[utf8]{inputenc} 
+
+%%%%  --- Fontes  ---%
+%\usepackage{newtxmath} % 
+%\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
+%\usepackage{newtxtext} % 
+%\usepackage{amsfonts} % Use de AMS font
+\usepackage{avant} % Use the Avantgarde font 
+\usepackage{microtype}
+\usepackage{helvet}
+\usepackage[normalem]{ulem}
+\usepackage{soul}
+
+%%%%  --- Tabelas ---%
+%\usepackage{tabularx} % in the preamble
+%\usepackage{showframe}% http://ctan.org/pkg/showframe
+%\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\usepackage{array}
+\usepackage{graphicx}
+
+%%%%  --- PDF Features  ---%
+%\usepackage[author={P&D TAESA}]{pdfcomment}
+
+
+%%%%%% ==============================  Configurações  ============================== %%%%%%
+
+%%%--------------------------------------------------------------------------------
+%%%	FONT SPECIFICATIONS
+%%%--------------------------------------------------------------------------------
+
+%Escolha da Fonte
+\renewcommand{\familydefault}{\sfdefault}
+%%%%\renewcommand{\rmdefault}{ptm} %não sei para que serve
+    %\rmdefault %selects a roman (i.e., serifed) font family
+    %\sfdefaultand %selects a sans serif font family
+    %\ttdefault %selects a monospaced (“typewriter”) font family 
+
+    %\rmfamily %selects a roman (i.e., serifed) font family
+    %\sffamily %selects a sans serif font family
+    %\ttfamily %selects a monospaced (“typewriter”) font family 
+        %Within each font family, the following declarations select the “series” (i.e., dark-ness or stroke width),
+        %\mdseries %regular
+        %\bfseries %bold
+        %and the “shape” (i.e., the form of the letters)
+        %\upshapeupright
+        %\slshapeslanted
+        %\itshapeitalic
+        %\scshapeCapsandSmallCap
+
+%%% Configuração fina
+%%% http://tug.ctan.org/tex-archive/macros/latex/contrib/microtype/microtype.pdf
+%%\microtypecontext{
+%%    activate={true,nocompatibility},%%% activate={true,nocompatibility} - activate protrusion and expansion
+%%    final, %%% final - enable microtype; use "draft" to disable
+%%    tracking=true,%%% tracking=true, kerning=true, spacing=true - activate these techniques
+%%    protrusion=true,
+%%    expansion,
+%%    kerning=true,
+%%    spacing=true,
+%%    factor=1100,%%% factor=1100 - add 10% to the protrusion amount (default is 1000)
+%%    stretch=10, %%% stretch=10, shrink=10 - reduce stretchability/shrinkability (default is 20/20)
+%%    shrink=10,
+%%    spacing=nonfrench
+%%    }
+%%
+
+%%%----------------------------------------------------------------------------------------
+%%%	Especificações do Sumário 
+%%%----------------------------------------------------------------------------------------
+\setcounter{tocdepth}{1} % Profundidade do sumário
+\renewcommand{\contentsname}{SUMÁRIO}
+
+
+%%%----------------------------------------------------------------------------------------
+%%%	PARAGRAPH SPACING SPECIFICATIONS
+%%%----------------------------------------------------------------------------------------
+\setlength{\parindent}{15mm} % Retira indentação dos parágrafos
+\setlength{\parskip}{2.5mm} % Whitespace between paragraphs
+\usepackage{indentfirst}
+
+
+%%%----------------------------------------------------------------------------------------
+%%%	SECTION TITLE SPECIFICATIONS
+%%%----------------------------------------------------------------------------------------
+
+\usepackage{titlesec} % Required for modifying section titles
+
+%%% Número e nome dos capítulos na mesma linha
+\titleformat{\chapter} [hang]
+    {\sffamily\large\bfseries} % Title font customizations
+    {\chaptertitlename\ \thechapter.} % chapter number
+    {5pt} % Whitespace between the number and title
+    {\large} % Title font size
+    \titlespacing*{\chapter}{0mm}{5mm}{0mm} % Left, top and bottom spacing around the title
+    
+\titleformat{\section} %[block] % Customize the \section{} section title
+    {\sffamily\large\bfseries} % Title font customizations
+    {\thesection} % Section number
+    {5pt} % Whitespace between the number and title
+    {\large} % Title font size
+    \titlespacing*{\section}{0mm}{5mm}{0mm} % Left, top and bottom spacing around the title
+
+\titleformat{\subsection} % Customize the \subsection{} section title
+    {\sffamily\large\bfseries} % Title font customizations
+    {\thesubsection} % Subsection number
+    {5pt} % Whitespace between the number and title
+    {\large} % Title font size
+    \titlespacing*{\subsection}{0mm}{5mm}{0mm} % Left, top and bottom spacing around the title
+
+\titleformat{\subsubsection} % Customize the \subsection{} section title
+    {\sffamily\large\bfseries} % Title font customizations
+    {\thesubsubsection} % Subsection number
+    {5pt} % Whitespace between the number and title
+    {\large} % Title font size
+    \titlespacing*{\subsubsection}{0mm}{5mm}{0mm} % Left, top and bottom spacing around the title
+
+\renewcommand{\chaptername}{CLÁUSULA} % Altera nomes dos capítulos de "Chapter" para "clausula"
+%%%\renewcommand{\thechapter}{\Roman{chapter}} %Altera numeração de capítulos para números romanos
+
+%%%% 2 capitulos na mesma pagina
+\usepackage{etoolbox}
+    \makeatletter
+    \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+    \makeatother
+
+
+%%%----------------------------------------------------------------------------------------
+%%%	Especificações das listas e numerações 
+%%%----------------------------------------------------------------------------------------
+%\setcounter{secnumdepth}{9} % Profundidade da numeração
+
+
+%\renewcommand*{\theenumi}{\thesection.\arabic{enumi}} % Permite numeração continuada a partir dos capítulos e seções.
+%\renewcommand*{\theenumii}{\theenumi.\arabic{enumii}} % Permite numeração continuada a partir dos capítulos e seções.
+%\usepackage{remreset} % OBSOLETE Para numeração de seções continuamente, independente dos capítulos
+
+%\makeatletter 
+%  \@removefromreset{section}{chapter}
+%\makeatother
+
+
+%%%-------COMENTARIOS---------------------------------------------------------------------------------
+\iffalse
+teste
+\fi
+
+
+%%%-----------------------------------------------------------
+%%%	Cabeçalho e Rodapé
+%%%-----------------------------------------------------------
+%% Redefine the plain page style
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0.4pt}
+        \fancyfoot[L]{}    
+        \fancyfoot[C]{}
+        \fancyhead[R]{\sffamily{PROJETO P\&D: \ApelidoProjeto\ -\ Contrato nº \NumeroContrato}}
+    \renewcommand{\footrulewidth}{0.4pt}
+        \pagenumbering{arabic}
+        \fancyfoot[L]{}
+        \fancyfoot[C]{\fontsize{9}{9} \sffamily{Chancelas e Rubricas:}}
+        \fancyfoot[R]{\fontsize{9}{9} \sffamily {Página\ \thepage\ de \pageref{LastPage}}}
+        
+}
+
+%% Redefine the empty  page style
+\fancypagestyle{empty}{%
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0.4pt}
+        \fancyfoot[C]{}
+        \fancyhead[R]{}
+    \renewcommand{\footrulewidth}{0.4pt}
+        \pagenumbering{arabic}
+        \fancyfoot[L]{\fontsize{9}{9} \sffamily{Chancelas e Rubricas:}}
+        \fancyfoot[C]{}
+        \fancyfoot[R]{\fontsize{9}{9} \sffamily{Página\ \thepage\ de \pageref{LastPage}}}
+}
